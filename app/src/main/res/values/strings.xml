@@ -6,5 +6,11 @@
     <string name="textViewDescription">Here is Detailed Description</string>
     <string name="favourite_fragment">Here is your list of favourite movies</string>
     <string name="rated_fragment">High Rated Movies are here</string>
+    <string name="action_favourite">Favourite</string>
+    <string name="action_rated">High Rated</string>
+    <string name="action_home">На главную</string>
+    <string name="favorite">Favourite</string>
+    <string name="main">Main</string>
+    <string name="rated">High Rated</string>
 
 </resources>
