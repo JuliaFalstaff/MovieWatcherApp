@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="title_size">20sp</dimen>
-    <dimen name="original_title_size">15sp</dimen>
-    <dimen name="release_date_size">15sp</dimen>
-    <dimen name="margin_top">8dp</dimen>
+    <dimen name="title_size">24sp</dimen>
+    <dimen name="original_title_size">22sp</dimen>
+    <dimen name="release_date_size">18sp</dimen>
+    <dimen name="margin_top_4">4dp</dimen>
+    <dimen name="margin_top_8">8dp</dimen>
+    <dimen name="margin_top_30">30dp</dimen>
+    <dimen name="recycler_item_padding">10dp</dimen>
+    <dimen name="recycler_item_text_size">25sp</dimen>
+    <dimen name="recycler_item_line_height">1dp</dimen>
+    <dimen name="recycler_item_line_margin_end">20dp</dimen>
+    <dimen name="margin_start_12">12dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="text_size_35">35sp</dimen>
+    <dimen name="text_size_28">28sp</dimen>
 </resources>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <drawable name="id_poster">@drawable/manhattan</drawable>
+    <drawable name="french_dispetcher_poster">@drawable/french_poster</drawable>
+    <drawable name="manhattan_poster">@drawable/manhattan</drawable>
+    <drawable name="pulp_poster">@drawable/pulp_fiction</drawable>
+    <drawable name="flowers_poster">@drawable/broken_flowers</drawable>
+    <drawable name="peaks_poster">@drawable/twin_peaks</drawable>
+    <drawable name="totoro_neigbourgh_poster">@drawable/totoro</drawable>
 </resources>
