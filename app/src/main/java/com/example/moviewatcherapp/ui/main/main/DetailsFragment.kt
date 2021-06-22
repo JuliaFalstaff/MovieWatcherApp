@@ -37,15 +37,31 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val movie = arguments?.getParcelable<Movie>(BUNDLE_EXTRA)
-        if (movie != null) {
-            val genre = movie.genre
-            binding.textViewTitle.text = movie.title.toString()
-            binding.textViewOriginalTitle.text = movie.originalTitle.toString()
-            binding.textViewReleaseDate.text = movie.releaseDate.toString()
-            binding.textViewGenre.text = genre.toString()
-            binding.imageViewPoster.setImageResource(movie.poster)
-            binding.textViewDescriptionOfMovie.text = movie.descriptionOfMovie.toString()
+        arguments?.getParcelable<Movie>(BUNDLE_EXTRA)?.let { movie ->
+            with(binding) {
+            movie.genre.also { genre ->
+                textViewGenre.text = genre.toString()
+            }
+            textViewTitle.text = movie.title.toString()
+            textViewOriginalTitle.text = movie.originalTitle.toString()
+            textViewReleaseDate.text = movie.releaseDate.toString()
+            imageViewPoster.setImageResource(movie.poster)
+            textViewDescriptionOfMovie.text = movie.descriptionOfMovie.toString()
+             }
         }
     }
 }
+
+//override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//    super.onViewCreated(view, savedInstanceState)
+//    val movie = arguments?.getParcelable<Movie>(DetailsFragment.BUNDLE_EXTRA)
+//    if (movie != null) {
+//        val genre = movie.genre
+//        binding.textViewTitle.text = movie.title.toString()
+//        binding.textViewOriginalTitle.text = movie.originalTitle.toString()
+//        binding.textViewReleaseDate.text = movie.releaseDate.toString()
+//        binding.textViewGenre.text = genre.toString()
+//        binding.imageViewPoster.setImageResource(movie.poster)
+//        binding.textViewDescriptionOfMovie.text = movie.descriptionOfMovie.toString()
+//    }
+//}

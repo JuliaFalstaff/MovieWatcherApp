@@ -18,8 +18,7 @@ data class Movie(
 
 fun getDefaultGenre() = Genre.UNKNOWN
 
-fun getMoviesList(): List<Movie> {
-    return listOf(
+fun getMoviesList() = listOf(
             Movie(
                     1,
                     "Французский диспетчер",
@@ -90,4 +89,4 @@ fun getMoviesList(): List<Movie> {
                             "во главе со своим могущественным, но добрым повелителем Тоторо. Постепенно Тоторо становится другом девочек, помогая им в их повседневных приключениях"
             )
     )
-}
+

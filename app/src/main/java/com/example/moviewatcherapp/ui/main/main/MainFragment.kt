@@ -21,27 +21,25 @@ class MainFragment : Fragment() {
 
     private val adapter = MainFragmentAdapter(object : OnItemViewClickListener {
         override fun onItemViewClick(movie: Movie) {
-            val manager = activity?.supportFragmentManager
-            if (manager != null) {
-                val bundle = Bundle()
-                bundle.putParcelable(DetailsFragment.BUNDLE_EXTRA, movie)
-                manager.beginTransaction()
-                    .add(R.id.container, DetailsFragment.newInstance(bundle))
-                    .addToBackStack("")
-                    .commitAllowingStateLoss()
+            activity?.supportFragmentManager?.apply {
+                beginTransaction()
+                        .add(R.id.container, DetailsFragment.newInstance(Bundle().apply {
+                            putParcelable(DetailsFragment.BUNDLE_EXTRA, movie)
+                        }))
+                        .addToBackStack("")
+                        .commitAllowingStateLoss()
             }
         }
     })
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         binding.mainFragmentRecyclerView.adapter = adapter
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,25 +54,31 @@ class MainFragment : Fragment() {
         viewModel.getMovie()
     }
 
+    private fun View.showSnackBar(
+            text: String,
+            actionText: String,
+            action: (View) -> Unit,
+            length: Int = Snackbar.LENGTH_INDEFINITE
+    ) {
+        Snackbar.make(this, text, length).setAction(actionText, action).show()
+    }
+
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
-                binding.mainFragmentLoadingLayout.visibility = View.GONE
+                mainFragmentLoadingLayout.visibility = View.GONE
                 adapter.setMovie(appState.movieData)
             }
             is AppState.Loading -> {
-                binding.mainFragmentLoadingLayout.visibility = View.VISIBLE
+                mainFragmentLoadingLayout.visibility = View.VISIBLE
             }
             is AppState.Error -> {
-                binding.mainFragmentLoadingLayout.visibility = View.GONE
-                Snackbar
-                    .make(
-                        binding.mainFragmentLoadingLayout,
+                mainFragmentLoadingLayout.visibility = View.GONE
+                mainFragmentLoadingLayout.showSnackBar(
                         getString(R.string.error),
-                        Snackbar.LENGTH_INDEFINITE
-                    )
-                    .setAction(getString(R.string.reload)) { viewModel.getMovie() }
-                    .show()
+                        getString(R.string.reload),
+                        { viewModel.getMovie() }
+                )
             }
         }
     }
@@ -85,7 +89,7 @@ class MainFragment : Fragment() {
 
     companion object {
         fun newInstance() =
-            MainFragment()
+                MainFragment()
     }
 
     override fun onDestroy() {

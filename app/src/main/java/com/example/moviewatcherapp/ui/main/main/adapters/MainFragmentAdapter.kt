@@ -43,9 +43,7 @@ class MainFragmentAdapter(private var onItemViewClickListener: MainFragment.OnIt
         holder.bind(movieData[position])
     }
 
-    override fun getItemCount(): Int {
-        return movieData.size
-    }
+    override fun getItemCount() = movieData.size
 
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) = with(binding) {
@@ -54,7 +52,6 @@ class MainFragmentAdapter(private var onItemViewClickListener: MainFragment.OnIt
             textViewReleaseDate.text = movie.releaseDate
             textViewGenre.text = movie.genre.toString()
             imageViewPoster.setImageResource(movie.poster)
-
             root.setOnClickListener { onItemViewClickListener?.onItemViewClick(movie) }
         }
     }
