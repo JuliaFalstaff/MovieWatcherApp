@@ -4,19 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.example.moviewatcherapp.databinding.MainActivityBinding
-import com.example.moviewatcherapp.ui.main.FavouriteMovieFragment
-//import com.example.moviewatcherapp.ui.main.DescriptionMovieFragment
+import com.example.moviewatcherapp.ui.main.main.FavouriteMovieFragment
+//import com.example.moviewatcherapp.ui.main.main.DescriptionMovieFragment
 //import com.example.moviewatcherapp.ui.main.FavouriteFragment.Companion.newInstance
-import com.example.moviewatcherapp.ui.main.MainFragment
-import com.example.moviewatcherapp.ui.main.RatedMovieFragment
+import com.example.moviewatcherapp.ui.main.main.DetailsFragment
+import com.example.moviewatcherapp.ui.main.main.MainFragment
+import com.example.moviewatcherapp.ui.main.main.RatedMovieFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,17 +30,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
+                .replace(R.id.container, MainFragment.newInstance())
+                .commitNow()
         }
         initView()
-
-
     }
 
     private fun initView() {
         initToolbar()
-
     }
 
     private fun initToolbar() {
@@ -58,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.action_favourite -> {
                 addFragment(FavouriteMovieFragment())
                 return true
@@ -76,9 +70,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
 

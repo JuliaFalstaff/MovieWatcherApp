@@ -1,4 +1,4 @@
-package com.example.moviewatcherapp.ui.main
+package com.example.moviewatcherapp.ui.main.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ import com.example.moviewatcherapp.model.repository.Repository
 import com.example.moviewatcherapp.model.repository.RepositoryImpl
 import java.lang.Thread.sleep
 
-class MainViewModel () : ViewModel() {
+class MainViewModel() : ViewModel() {
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
     private val repository: Repository = RepositoryImpl()
 
@@ -25,7 +25,4 @@ class MainViewModel () : ViewModel() {
             liveDataToObserve.postValue(AppState.Success(repository.getMovieFromLocalStorage()))
         }.start()
     }
-
-
-
 }
