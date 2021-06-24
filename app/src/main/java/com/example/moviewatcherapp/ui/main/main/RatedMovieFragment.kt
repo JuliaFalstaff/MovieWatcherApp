@@ -21,7 +21,6 @@ class RatedMovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = RatedMoviesFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -5,11 +5,7 @@ import com.example.moviewatcherapp.model.getMoviesList
 
 class RepositoryImpl : Repository {
 
-    override fun getMovieFromServer(): Movie {
-        return Movie()
-    }
+    override fun getMovieFromServer() = Movie()
 
-    override fun getMovieFromLocalStorage(): List<Movie> {
-        return getMoviesList()
-    }
+    override fun getMovieFromLocalStorage() = getMoviesList()
 }

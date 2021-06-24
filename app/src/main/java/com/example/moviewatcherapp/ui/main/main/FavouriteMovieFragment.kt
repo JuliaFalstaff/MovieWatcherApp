@@ -22,7 +22,6 @@ class FavouriteMovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FavouriteFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
