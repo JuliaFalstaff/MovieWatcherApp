@@ -9,8 +9,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.moviewatcherapp.databinding.MainActivityBinding
 import com.example.moviewatcherapp.ui.main.main.FavouriteMovieFragment
-//import com.example.moviewatcherapp.ui.main.main.DescriptionMovieFragment
-//import com.example.moviewatcherapp.ui.main.FavouriteFragment.Companion.newInstance
 import com.example.moviewatcherapp.ui.main.main.DetailsFragment
 import com.example.moviewatcherapp.ui.main.main.MainFragment
 import com.example.moviewatcherapp.ui.main.main.RatedMovieFragment
