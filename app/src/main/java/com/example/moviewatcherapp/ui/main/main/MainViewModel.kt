@@ -14,7 +14,6 @@ class MainViewModel() : ViewModel() {
     private val repository: Repository = RepositoryImpl()
 
     fun getLiveData() = liveDataToObserve
-
     fun getMovie() = getDataFromLocalSource()
     fun getMovieFromRemoteSource() = getDataFromLocalSource()
 
